@@ -1,0 +1,30 @@
+@import '../../styles.scss';
+
+table {
+    width: 100%;
+    border-radius: 5px;
+}
+
+table, td {
+    border-collapse: collapse;
+    border: 0.1em solid $firstColor;
+    font-size: 1em;
+}
+
+thead {
+    background-color: $backgroundColor;
+    background-image: url('../../assets/images/pattern-dots-tiny.svg');
+    background-size: 5px;
+    background-repeat: repeat;
+    color: $firstColor;
+}
+
+/*tbody tr:nth-child(even) {
+    background-color: #e94b4b;
+}*/
+
+td {
+    color: $firstColor;
+    padding: 0.4em 0.5em;
+    font-family: Khula;
+}

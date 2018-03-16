@@ -1,0 +1,69 @@
+@import '../../styles.scss';
+
+.item {
+    color: $firstColor;
+    margin-bottom: 0.5em;
+    padding: 0.4em 0.6em;
+    width: 100%;
+    border: 0.1em solid $firstColor;
+    background: transparent;
+    font-weight: normal;
+    font-family: Khula;
+    font-size: 1em;
+}
+
+form {
+    margin-top: 3em;
+}
+
+input {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button, /* Removes arrows */
+input::-webkit-inner-spin-button, /* Removes arrows */
+input::-webkit-clear-button { /* Removes blue cross */
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:invalid {
+    //color: rgb(255, 0, 0);
+}
+
+input::placeholder {
+    color: $firstColorHide;
+    opacity: 1;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select:invalid {
+    color: $firstColorHide;
+}
+
+option {
+    background: $backgroundColor;
+    color: black;
+}
+
+button.item {
+    background-color: $backgroundColor;
+    background-image: url('../../assets/images/pattern-dots-tiny.svg');
+    background-size: 5px;
+    background-repeat: repeat;
+    color: $firstColor;
+}
+
+button.item:disabled {
+    opacity: 0.5;
+}

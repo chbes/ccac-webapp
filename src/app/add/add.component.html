@@ -1,0 +1,15 @@
+<section>
+  <h2>Add</h2>
+  <div class="content">
+    <form #transactionForm="ngForm" (ngSubmit)="addTransaction(newTransaction)">
+      <input class="item" [ngModel]="newTransaction.date | date:'yyyy-MM-dd'" (ngModelChange)="newTransaction.date=stringToDate($event);checkValidation();" [max]="todayString()"
+        type="date" name="date" required/>
+      <input class="item" [(ngModel)]="newTransaction.amount" type="number" name="amount" placeholder="Amount" pattern="[0-9]{1,7}" (ngModelChange)="checkValidation()" required/>
+      <select class="item" [(ngModel)]="newTransaction.user" name="user" (ngModelChange)="checkValidation()" required>
+        <option selected disabled hidden>User</option>
+        <option *ngFor="let user of users">{{user}}</option>
+      </select>
+      <button class="item text-shadow" type="submit" [disabled]="!transactionForm.form.valid || !formValidation">ADD</button>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+$firstColor: rgb(0, 131, 143);
+$firstColorHide: rgba(0, 131, 143, 0.6);
+$secondColor: rgb(33, 33, 33);
+$backgroundColor: rgb(224, 252, 255);
+$userOneColor: rgba(66, 148, 255, 0.3);
+$userTwoColor: rgba(253, 19, 19, 0.3);
+
+$shadowColor: $backgroundColor;
+$shadowSize: 0.2em;
+
+body {
+    margin: 0;
+    color: $secondColor;
+    background: $backgroundColor;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    font-family: Khula;
+}
+
+section {
+    min-height: 100vh;
+    background: $backgroundColor;
+    padding: 1em 2em;
+
+    h2 {
+        color: $firstColor;
+        font-size: 1.85em;
+        margin: 0;
+        margin-bottom: 1em;
+    }
+
+    .content {
+        text-align: center;
+    }
+}
+
+.text-shadow {
+    text-shadow: 0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor,0 0 $shadowSize $shadowColor;
+}
