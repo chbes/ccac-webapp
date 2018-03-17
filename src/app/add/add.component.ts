@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Transaction } from '../models/transaction';
 import { TransactionService } from '../services/transaction.service';
 import { NgForm } from '@angular/forms';
@@ -9,17 +9,18 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent {
+  
+  @Input() users: string[];
 
   private newTransaction: Transaction;
-  private users: string[];
   private formValidation = false;
 
   constructor(private transactionService: TransactionService) {
     this.newTransaction = new Transaction();
     this.users = new Array<string>();
-    this.transactionService.getUsers().subscribe(data => {
+    /*this.transactionService.getUsers().subscribe(data => {
       this.users = data;
-    });
+    });*/
   }
 
   addTransaction(newTransaction) {

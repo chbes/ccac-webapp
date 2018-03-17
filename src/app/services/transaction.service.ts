@@ -30,16 +30,15 @@ export class TransactionService {
       .catch((error: any) => Observable.throw(error || 'Server error'));
   }
 
-  getUsers(): Observable<string[]> {
+  /*getUsers(): Observable<string[]> {
     console.log('GetUsers');
     return this.users;
-  }
+  }*/
 
-  //TODO: un appel loadUsers puis passer les users aux composants par Input
-  loadUsers(): Observable<string[]> {
-    this.users = this.http.get(USERS_URL)
+  //TODO: un appel getUsers puis passer les users aux composants par Input
+  getUsers(): Observable<string[]> {
+    return this.http.get(USERS_URL)
     .map((response): string[] => response.json())
     .catch((error: any) => Observable.throw(error || 'Server error'));
-    return this.users;
   }
 }
