@@ -10,22 +10,37 @@ import { TransactionService } from './services/transaction.service';
 
 export class AppComponent {
 
-  @Output() changeUsers: EventEmitter<string[]>;
+  @Output() emitterUsers: EventEmitter<string[]>;
+  @Output() emitterTransactions: EventEmitter<Transaction[]>;
 
   private users: string[];
+  private transactions: Transaction[];
 
   constructor(private transactionService: TransactionService) {
-    this.changeUsers = new EventEmitter<string[]>();
+    this.emitterUsers = new EventEmitter<string[]>();
+    this.emitterTransactions = new EventEmitter<Transaction[]>();
+    
     this.users = Array<string>();
-    console.log('& Start');
+    this.transactions = Array<Transaction>();
+    
     this.transactionService.getUsers().subscribe(data => {
-      console.log('& Data: ', data);
+      //TODO Start loader
       this.users = data;
-      this.changeUsers.emit(this.users);
+      this.emitterUsers.emit(this.users);
     }, (error) => {
-      console.error('& ',error);
+      //TODO Show error message
     }, () => {
-      console.log('& done!');
+      //TODO Stop loader
+    });
+
+    this.transactionService.transactions.subscribe(data => {
+      //TODO Start loader
+      this.transactions = data;
+      this.emitterTransactions.emit(this.transactions);
+    }, (error) => {
+      //TODO Show error message
+    }, () => {
+      //TODO Stop loader
     });
   }
 

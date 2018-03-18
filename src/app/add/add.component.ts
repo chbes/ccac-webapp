@@ -18,9 +18,6 @@ export class AddComponent {
   constructor(private transactionService: TransactionService) {
     this.newTransaction = new Transaction();
     this.users = new Array<string>();
-    /*this.transactionService.getUsers().subscribe(data => {
-      this.users = data;
-    });*/
   }
 
   addTransaction(newTransaction) {

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Transaction } from '../models/transaction';
 import { TransactionService } from '../services/transaction.service';
 
@@ -7,26 +7,21 @@ import { TransactionService } from '../services/transaction.service';
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.scss']
 })
-export class StatsComponent {
+export class StatsComponent implements OnChanges {
 
   @Input() users: string[];
-  
-  private transactions: Transaction[];
+  @Input() transactions: Transaction[];
+
   private totals: any[];
 
   constructor(private transactionService: TransactionService) {
-    //this.users = new Array<string>();
-    console.log('SC: ', this.users);
-    this.transactions = new Array<Transaction>();
     this.totals = new Array<any>();
-    /*this.transactionService.getUsers().subscribe(data => {
-      this.users = data;
+  }
+  
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['transactions'] || changes['users']) {
       this.totals = this.computeTotalsAmount(this.transactions, this.users);
-    });*/
-    this.transactionService.transactions.subscribe(data => {
-      this.transactions = data;
-      this.totals = this.computeTotalsAmount(this.transactions, this.users);
-    });
+    }
   }
 
   private computeTotalsAmount(transactions: Transaction[], users: string[]): any[] {
