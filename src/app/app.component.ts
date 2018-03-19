@@ -16,7 +16,13 @@ export class AppComponent {
   private users: string[];
   private transactions: Transaction[];
 
+  private usersLoader: boolean;
+  private transactionsLoader: boolean;
+
   constructor(private transactionService: TransactionService) {
+    this.usersLoader = true;
+    this.transactionsLoader = true;
+
     this.emitterUsers = new EventEmitter<string[]>();
     this.emitterTransactions = new EventEmitter<Transaction[]>();
     
@@ -31,6 +37,7 @@ export class AppComponent {
       //TODO Show error message
     }, () => {
       //TODO Stop loader
+      this.usersLoader = false;
     });
 
     this.transactionService.transactions.subscribe(data => {
@@ -41,6 +48,7 @@ export class AppComponent {
       //TODO Show error message
     }, () => {
       //TODO Stop loader
+      this.transactionsLoader = false;
     });
   }
 

@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { TransactionService } from './services/transaction.service';
 import { WebsocketService } from './services/websocket.service';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { WebsocketService } from './services/websocket.service';
     StatsComponent,
     AddComponent,
     ListComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
