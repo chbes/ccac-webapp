@@ -1,5 +1,14 @@
 @import '../../styles.scss';
 
+h2 {
+    margin-bottom: 0 !important;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 1em !important;
+}
+
 table {
     width: 100%;
     border-radius: 5px;
@@ -7,7 +16,7 @@ table {
 
 table, td {
     border-collapse: collapse;
-    border: 0.1em solid $firstColor;
+    border: 0.16em solid $firstColor;
     font-size: 1em;
 }
 
