@@ -1,5 +1,18 @@
 @import '../../styles.scss';
 
+h2 {
+    margin-bottom: 0 !important;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 1em !important;
+}
+
+p {
+    margin: 0;
+}
+
 .item {
     color: $firstColor;
     margin-bottom: 0.5em;
@@ -7,7 +20,7 @@
     width: 100%;
     border: 0.1em solid $firstColor;
     background: transparent;
-    font-weight: normal;
+    font-weight: 700;
     font-family: Khula;
     font-size: 1em;
 }
@@ -47,13 +60,11 @@ select {
     -moz-appearance: none;
 }
 
-select:invalid {
-    color: $firstColorHide;
-}
-
 option {
     background: $backgroundColor;
-    color: black;
+    color: $firstColor;
+    font-weight: 700;
+    font-family: Khula;
 }
 
 button.item {

@@ -1,5 +1,6 @@
 <section>
-  <h2>Add</h2>
+  <h2>Form</h2>
+  <h3>add new transaction</h3>
   <div class="content">
     <form #transactionForm="ngForm" (ngSubmit)="addTransaction(newTransaction)">
       <input class="item" [ngModel]="newTransaction.date | date:'yyyy-MM-dd'" (ngModelChange)="newTransaction.date=stringToDate($event);checkValidation();" [max]="todayString()"
@@ -9,7 +10,10 @@
         <option selected disabled hidden>User</option>
         <option *ngFor="let user of users">{{user}}</option>
       </select>
-      <button class="item text-shadow" type="submit" [disabled]="!transactionForm.form.valid || !formValidation">ADD</button>
+      <button class="item text-shadow" type="submit" [disabled]="!transactionForm.form.valid || !formValidation">
+        <p *ngIf="loader">...</p>
+        <p *ngIf="!loader">ADD</p>
+      </button>
     </form>
   </div>
 </section>

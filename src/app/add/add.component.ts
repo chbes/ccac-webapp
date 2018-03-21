@@ -13,18 +13,24 @@ export class AddComponent {
   @Input() users: string[];
 
   private newTransaction: Transaction;
-  private formValidation = false;
+  private formValidation: boolean;
+  private loader: boolean;
 
   constructor(private transactionService: TransactionService) {
     this.newTransaction = new Transaction();
-    this.users = new Array<string>();
+    this.formValidation = false;
+    this.loader = false;
   }
 
   addTransaction(newTransaction) {
+    this.loader = true;
     this.transactionService.createTransactions(newTransaction).subscribe(data => {
       this.newTransaction = new Transaction();
-    }, err => {
-      console.log(err);
+    }, (error) => {
+      //TODO Show error message
+    }, () => {
+      //TODO Stop loader
+      this.loader = false;
     });
   }
 
@@ -42,6 +48,7 @@ export class AddComponent {
     && this.amountValid(this.newTransaction.amount)
     && this.dateValid(this.newTransaction.date)
     );
+    console.log("T: ", this.newTransaction);
   }
 
   userValid(user: string): boolean {
