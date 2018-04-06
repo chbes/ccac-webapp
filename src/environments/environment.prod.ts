@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: ''
+  apiUrl: 'localhost:8080/ccac-api'
 };
