@@ -16,8 +16,8 @@ export class AppComponent {
   private users: string[];
   private transactions: Transaction[];
 
-  private usersLoader: boolean;
-  private transactionsLoader: boolean;
+  public usersLoader: boolean;
+  public transactionsLoader: boolean;
 
   constructor(private transactionService: TransactionService) {
     this.usersLoader = true;
@@ -30,24 +30,24 @@ export class AppComponent {
     this.transactions = Array<Transaction>();
     
     this.transactionService.getUsers().subscribe(data => {
-      //TODO Start loader
+      // Start loader
       this.users = data;
       this.emitterUsers.emit(this.users);
     }, (error) => {
-      //TODO Show error message
+      // TODO Show error message
     }, () => {
-      //TODO Stop loader
+      // Stop loader
       this.usersLoader = false;
     });
 
     this.transactionService.transactions.subscribe(data => {
-      //TODO Start loader
+      // Start loader
       this.transactions = data;
       this.emitterTransactions.emit(this.transactions);
     }, (error) => {
-      //TODO Show error message
+      // TODO Show error message
     }, () => {
-      //TODO Stop loader
+      // Stop loader
       this.transactionsLoader = false;
     });
   }

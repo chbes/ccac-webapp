@@ -9,12 +9,12 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent {
-  
+
   @Input() users: string[];
 
-  private newTransaction: Transaction;
-  private formValidation: boolean;
-  private loader: boolean;
+  public newTransaction: Transaction;
+  public formValidation: boolean;
+  public loader: boolean;
 
   constructor(private transactionService: TransactionService) {
     this.newTransaction = new Transaction();
@@ -23,13 +23,14 @@ export class AddComponent {
   }
 
   addTransaction(newTransaction) {
+    // Start loader
     this.loader = true;
     this.transactionService.createTransactions(newTransaction).subscribe(data => {
       this.newTransaction = new Transaction();
     }, (error) => {
-      //TODO Show error message
+      // TODO Show error message
     }, () => {
-      //TODO Stop loader
+      // Stop loader
       this.loader = false;
     });
   }
@@ -44,10 +45,10 @@ export class AddComponent {
 
   checkValidation() {
     this.formValidation =
-    (  this.userValid(this.newTransaction.user)
-    && this.amountValid(this.newTransaction.amount)
-    && this.dateValid(this.newTransaction.date)
-    );
+      (this.userValid(this.newTransaction.user)
+        && this.amountValid(this.newTransaction.amount)
+        && this.dateValid(this.newTransaction.date)
+      );
     console.log("T: ", this.newTransaction);
   }
 
@@ -61,7 +62,7 @@ export class AddComponent {
 
   dateValid(date: Date): boolean {
     const dateString = date.toISOString().split('T')[0];
-    return ( (/[0-9]{4}-[0-9]{2}-[0-9]{2}$/).test(dateString) && (dateString <= new Date().toISOString().split('T')[0]) );
+    return ((/[0-9]{4}-[0-9]{2}-[0-9]{2}$/).test(dateString) && (dateString <= new Date().toISOString().split('T')[0]));
   }
 
 }

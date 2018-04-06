@@ -12,7 +12,7 @@ export class StatsComponent implements OnChanges {
   @Input() users: string[];
   @Input() transactions: Transaction[];
 
-  private totals: any[];
+  public totals: any[];
 
   constructor(private transactionService: TransactionService) {
     this.totals = new Array<any>();
