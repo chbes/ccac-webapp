@@ -6,7 +6,7 @@
     "ng": "ng",
     "api": "go run ../api/main.go",
     "dev": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --base-href=ccac --environment=prod --prod --build-optimizer",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
