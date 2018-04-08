@@ -5,7 +5,6 @@ import { Transaction } from '../models/transaction';
 import { WebsocketService } from './websocket.service';
 import { environment } from '../../environments/environment';
 
-// Change for get url in config file
 const API_URL = environment.apiUrl;
 const WEBSOCKET_URL = 'ws://' + API_URL + '/ws';
 const TRANSACTIONS_URL = 'http://' + API_URL + '/transactions';
@@ -30,15 +29,9 @@ export class TransactionService {
       .catch((error: any) => Observable.throw(error || 'Server error'));
   }
 
-  /*getUsers(): Observable<string[]> {
-    console.log('GetUsers');
-    return this.users;
-  }*/
-
-  //TODO: un appel getUsers puis passer les users aux composants par Input
   getUsers(): Observable<string[]> {
     return this.http.get(USERS_URL)
-    .map((response): string[] => response.json())
-    .catch((error: any) => Observable.throw(error || 'Server error'));
+      .map((response): string[] => response.json())
+      .catch((error: any) => Observable.throw(error || 'Server error'));
   }
 }

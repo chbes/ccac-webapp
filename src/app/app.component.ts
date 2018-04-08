@@ -25,16 +25,17 @@ export class AppComponent {
 
     this.emitterUsers = new EventEmitter<string[]>();
     this.emitterTransactions = new EventEmitter<Transaction[]>();
-    
+
     this.users = Array<string>();
     this.transactions = Array<Transaction>();
-    
+
     this.transactionService.getUsers().subscribe(data => {
       // Start loader
       this.users = data;
       this.emitterUsers.emit(this.users);
     }, (error) => {
       // TODO Show error message
+      console.log('Error get users: ', error);
     }, () => {
       // Stop loader
       this.usersLoader = false;
@@ -46,6 +47,7 @@ export class AppComponent {
       this.emitterTransactions.emit(this.transactions);
     }, (error) => {
       // TODO Show error message
+      console.log('Error get transactions: ', error);
     }, () => {
       // Stop loader
       this.transactionsLoader = false;

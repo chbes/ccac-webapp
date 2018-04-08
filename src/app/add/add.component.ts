@@ -28,7 +28,8 @@ export class AddComponent {
     this.transactionService.createTransactions(newTransaction).subscribe(data => {
       this.newTransaction = new Transaction();
     }, (error) => {
-      // TODO Show error message
+      // Show error message
+      console.log('Error add transaction: ', error);
     }, () => {
       // Stop loader
       this.loader = false;
